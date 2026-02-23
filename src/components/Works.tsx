@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
 import { CardContainer, CardBody, CardItem } from './ui/FloatingCard'
 
 const projects = [
@@ -9,6 +8,7 @@ const projects = [
         description:
             'A lifestyle growth app designed for anyone who wants to elevate their life with intention — turning self-development into a structured, rewarding journey.',
         image: '/bloomly.jpg',
+        repo: 'https://github.com/SantiagoChemello/bloomly-app',
     },
     {
         title: 'Taskify',
@@ -16,6 +16,7 @@ const projects = [
         description:
             'A minimalist and elegant web application for managing your daily tasks. Simple yet powerful, it helps you organize personal and professional activities efficiently.',
         image: '/taskify.jpg',
+        repo: 'https://github.com/SantiagoChemello/taskify-app',
     },
 ]
 
@@ -36,13 +37,6 @@ export default function Works() {
                         <h2 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-heading)]">
                             Projects
                         </h2>
-                        <a
-                            href="#works"
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200 cursor-pointer hidden sm:inline-flex items-center gap-1"
-                        >
-                            View all projects
-                            <ArrowUpRight size={14} />
-                        </a>
                     </div>
 
                     {/* Project Grid */}
@@ -55,36 +49,32 @@ export default function Works() {
                                 viewport={{ once: true, margin: '-60px' }}
                                 transition={{ duration: 0.5, delay: i * 0.12 }}
                             >
-                                <CardContainer containerClassName="w-full !p-0">
-                                    <CardBody className="bg-card relative group/card hover:shadow-2xl hover:shadow-primary/[0.07] border-border rounded-2xl p-5 border w-full">
-                                        {/* Thumbnail */}
-                                        <CardItem translateZ={80} className="w-full">
-                                            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-card">
-                                                <img
-                                                    src={project.image}
-                                                    alt={project.title}
-                                                    className="w-full h-full object-cover"
-                                                />
-                                                {/* Hover overlay */}
-                                                <div className="absolute inset-0 bg-primary/0 group-hover/card:bg-primary/10 transition-all duration-300 flex items-center justify-center">
-                                                    <div className="w-10 h-10 rounded-full bg-primary/80 flex items-center justify-center opacity-0 group-hover/card:opacity-100 scale-75 group-hover/card:scale-100 transition-all duration-300">
-                                                        <ArrowUpRight size={18} className="text-white" />
-                                                    </div>
+                                <a href={project.repo} target="_blank" rel="noopener noreferrer" className="block cursor-pointer">
+                                    <CardContainer containerClassName="w-full !p-0">
+                                        <CardBody className="bg-card relative group/card hover:shadow-2xl hover:shadow-primary/[0.07] border-border rounded-2xl p-5 border w-full">
+                                            {/* Thumbnail */}
+                                            <CardItem translateZ={80} className="w-full">
+                                                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-card">
+                                                    <img
+                                                        src={project.image}
+                                                        alt={project.title}
+                                                        className="w-full h-full object-cover"
+                                                    />
                                                 </div>
-                                            </div>
-                                        </CardItem>
+                                            </CardItem>
 
-                                        {/* Info */}
-                                        <CardItem translateZ={40} className="mt-4 w-full">
-                                            <h3 className="text-foreground font-semibold text-sm group-hover/card:text-primary transition-colors duration-200">
-                                                {project.title} — {project.type}
-                                            </h3>
-                                            <p className="text-muted-foreground text-xs mt-1">
-                                                {project.description}
-                                            </p>
-                                        </CardItem>
-                                    </CardBody>
-                                </CardContainer>
+                                            {/* Info */}
+                                            <CardItem translateZ={40} className="mt-4 w-full">
+                                                <h3 className="text-foreground font-semibold text-sm group-hover/card:text-primary transition-colors duration-200">
+                                                    {project.title} — {project.type}
+                                                </h3>
+                                                <p className="text-muted-foreground text-xs mt-1">
+                                                    {project.description}
+                                                </p>
+                                            </CardItem>
+                                        </CardBody>
+                                    </CardContainer>
+                                </a>
                             </motion.div>
                         ))}
                     </div>
