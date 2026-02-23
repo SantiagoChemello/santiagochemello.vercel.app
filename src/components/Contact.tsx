@@ -10,14 +10,14 @@ export default function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-80px' }}
                     transition={{ duration: 0.6 }}
-                    className="bg-card border border-border rounded-3xl p-10 md:p-14 text-center"
+                    className="bg-card border border-border rounded-3xl p-10 md:p-14 text-center card-glow"
                 >
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-[family-name:var(--font-heading)] mb-4">
-                        Ready to bring your ideas to life?
+                        Currently
                     </h2>
 
                     <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-                        I'm currently open to new opportunities — full-time roles, freelance
+                        Open to new opportunities — full-time, part-time, freelance
                         projects, or exciting collaborations. Let's build something great
                         together.
                     </p>

@@ -8,7 +8,7 @@ export default function Hero() {
             className="flex items-center pt-24 pb-3"
         >
             <div className="max-w-6xl mx-auto px-6 w-full">
-                <div className="bg-card border border-border rounded-3xl p-8 md:p-12 lg:p-16">
+                <div className="bg-card border border-border rounded-3xl p-8 md:p-12 lg:p-16 card-glow">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                         {/* Left — Text */}
                         <div className="space-y-6">
@@ -20,7 +20,7 @@ export default function Hero() {
                             >
                                 Santiago
                                 <br />
-                                <span className="text-gradient-orange">Chemello</span>
+                                <span className="text-gradient-accent">Chemello</span>
                             </motion.h1>
 
                             <motion.p
