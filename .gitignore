@@ -19,6 +19,9 @@ build/
 .env.*.local
 *.local
 
+# AI skills
+.agent/
+
 # OS files
 .DS_Store
 
