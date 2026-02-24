@@ -1,20 +1,22 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import ThemeToggle from './ThemeToggle'
+import { useTheme } from './ThemeProvider'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Works', href: '#works' },
+  { label: 'Projects', href: '#works' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { theme } = useTheme()
 
   return (
     <>
-      {/* Signature — pinned far left, outside content flow */}
       <motion.a
         href="#home"
         initial={{ opacity: 0, x: -20 }}
@@ -23,20 +25,27 @@ export default function Navbar() {
         className="fixed top-0.5 left-5 z-50 cursor-pointer"
       >
         <img
-          src="/logo.png"
+          src={theme === 'dark' ? '/logowhite.png' : '/logo.png'}
           alt="SC logo"
           className="h-12 md:h-14 w-auto"
         />
       </motion.a>
 
-      {/* Nav links — top right */}
+      <motion.div
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+        className="fixed top-3.5 left-1/2 -translate-x-1/2 z-50 hidden md:block"
+      >
+        <ThemeToggle />
+      </motion.div>
+
       <motion.nav
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="fixed top-0 right-0 z-50"
       >
-        {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8 px-8 py-5">
           {navLinks.map((link) => (
             <a
@@ -49,7 +58,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile hamburger */}
         <div className="md:hidden p-5">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -61,7 +69,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile dropdown */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -82,6 +89,9 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <div className="pt-2 border-t border-border">
+                <ThemeToggle />
+              </div>
             </div>
           </motion.div>
         )}
