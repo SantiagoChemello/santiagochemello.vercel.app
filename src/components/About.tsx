@@ -23,12 +23,9 @@ const education = {
     location: 'Montevideo',
     period: '2020 — Present (3rd year)',
     courses: [
-        'Java & JavaScript',
-        'C++ Algorithms',
-        'MySQL / PostgreSQL',
-        'C# & Clean Code / TDD',
-        'Network Programming',
         'Agile Software Engineering',
+        'Application Design',
+        'Clean Code',
     ],
 }
 
@@ -49,7 +46,6 @@ export default function About() {
         <section id="about" className="py-3">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* About Me Card */}
                     <motion.div
                         {...fadeUp}
                         className="bg-card border border-border rounded-3xl p-8 md:p-10 card-glow"
@@ -61,20 +57,20 @@ export default function About() {
                             <p>
                                 Advanced Computer Engineering student at Universidad ORT Uruguay
                                 with 1.5 years of hands-on experience in software development.
-                                Skilled in JavaScript, C#, Ruby on Rails, MySQL, and agile
+                                Skilled in TypeScript, C#, Ruby on Rails, MySQL, and agile
                                 methodologies.
                             </p>
                             <p>
                                 Focused on continuous learning, code quality, and
-                                collaborative teamwork. Based in Montevideo, Uruguay.
+                                collaborative teamwork.
                             </p>
+                            <p>Based in Montevideo, Uruguay.</p>
                         </div>
 
-                        {/* Languages */}
                         <div className="mt-6 pt-5 border-t border-border">
                             <div className="flex items-center gap-2 mb-3">
                                 <Languages size={15} className="text-primary" />
-                                <h3 className="text-sm font-semibold text-foreground">Languages</h3>
+                                <h2 className="text-lg font-semibold text-foreground">Languages</h2>
                             </div>
                             <div className="flex gap-3">
                                 {languages.map((l) => (
@@ -89,13 +85,11 @@ export default function About() {
                         </div>
                     </motion.div>
 
-                    {/* Experience & Education Card */}
                     <motion.div
                         {...fadeUp}
                         transition={{ duration: 0.6, delay: 0.12 }}
                         className="bg-card border border-border rounded-3xl p-8 md:p-10 card-glow"
                     >
-                        {/* Experience */}
                         <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-5">
                             Experience
                         </h2>
@@ -130,11 +124,10 @@ export default function About() {
                             ))}
                         </div>
 
-                        {/* Education */}
                         <div className="pt-5 border-t border-border">
-                            <h3 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">
+                            <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">
                                 Education
-                            </h3>
+                            </h2>
                             <div className="flex gap-4">
                                 <div className="flex flex-col items-center pt-1">
                                     <div className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
