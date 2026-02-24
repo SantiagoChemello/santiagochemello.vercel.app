@@ -1,13 +1,12 @@
 const techs = [
     { name: 'Ruby on Rails', icon: '◆' },
-    { name: 'JavaScript', icon: 'JS' },
-    { name: 'Java', icon: '☕' },
-    { name: 'C#', icon: '⟨⟩' },
-    { name: 'C++', icon: '++' },
+    { name: 'TypeScript', icon: 'TS' },
+    { name: 'Java', icon: 'J' },
+    { name: 'Python', icon: '⟨⟩' },
+    { name: '.NET', icon: '⧉' },
     { name: 'MySQL', icon: '⊞' },
     { name: 'PostgreSQL', icon: '⊡' },
     { name: 'GitHub', icon: '⊙' },
-    { name: 'TDD', icon: '✓' },
     { name: 'Agile / Scrum', icon: '↻' },
 ]
 

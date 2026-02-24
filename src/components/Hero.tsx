@@ -51,12 +51,12 @@ export default function Hero() {
                             <Typewriter
                                 text={[
                                     'Computer Engineering Student',
-                                    'Software Developer',
-                                    'Full-Stack Enthusiast',
+                                    'Full-Stack Developer',
+                                    'Open to new opportunities',
                                     'Based in Montevideo, Uruguay',
                                 ]}
-                                speed={60}
-                                deleteSpeed={35}
+                                speed={75}
+                                deleteSpeed={40}
                                 waitTime={2000}
                                 cursorChar="_"
                                 className="text-primary/80"
@@ -67,10 +67,11 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.2 }}
-                            className="text-muted-foreground text-base max-w-md leading-relaxed"
+                            className="text-muted-foreground text-base max-w-lg leading-relaxed"
                         >
-                            Focused on clean code, continuous learning,
-                            and building quality software.
+                            Focused on clean, maintainable code and continuous improvement.
+                            <br />
+                            I enjoy turning ideas into real-world software. 💻
                         </motion.p>
 
                         <motion.div
@@ -146,7 +147,6 @@ export default function Hero() {
                         </motion.div>
                     </div>
 
-                    {/* Right — Portrait with Flip */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.92 }}
                         animate={{ opacity: 1, scale: 1 }}
