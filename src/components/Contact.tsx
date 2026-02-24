@@ -25,7 +25,7 @@ export default function Contact() {
                     transition={{ duration: 0.6 }}
                     className="bg-card border border-border rounded-3xl p-8 md:p-10 text-center card-glow"
                 >
-                    <h2 className="text-xl md:text-2xl font-bold font-[family-name:var(--font-heading)] mb-3 text-gradient-accent">
+                    <h2 className="text-2xl md:text-3xl font-black font-[family-name:var(--font-heading)] mb-3 text-gradient-accent">
                         Let's Work Together
                     </h2>
 
@@ -46,7 +46,7 @@ export default function Contact() {
                                     exit={{ opacity: 0, scale: 0.95 }}
                                     transition={{ duration: 0.2 }}
                                     onClick={() => setShowEmail(true)}
-                                    className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium text-sm px-7 py-3 rounded-full transition-colors duration-200 cursor-pointer"
+                                    className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium text-sm px-7 py-3 rounded-full transition-all duration-200 cursor-pointer hover:scale-[1.02] hover:shadow-md hover:shadow-primary/15 active:scale-[0.98]"
                                 >
                                     <Mail size={16} />
                                     Email Me

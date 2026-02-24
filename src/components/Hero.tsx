@@ -82,10 +82,10 @@ export default function Hero() {
                         >
                             <a
                                 href="#contact"
-                                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium text-sm px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer"
+                                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium text-sm px-6 py-3 rounded-full transition-all duration-200 cursor-pointer hover:scale-[1.02] hover:shadow-md hover:shadow-primary/15 active:scale-[0.98]"
                             >
                                 Contact Me
-                                <ArrowRight size={16} />
+                                <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                             </a>
                             <div ref={cvRef} className="relative">
                                 <button
