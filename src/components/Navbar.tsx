@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
+import { useTheme } from './ThemeProvider'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -12,6 +13,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { theme } = useTheme()
 
   return (
     <>
@@ -23,7 +25,7 @@ export default function Navbar() {
         className="fixed top-0.5 left-5 z-50 cursor-pointer"
       >
         <img
-          src="/logo.png"
+          src={theme === 'dark' ? '/logowhite.png' : '/logo.png'}
           alt="SC logo"
           className="h-12 md:h-14 w-auto"
         />
