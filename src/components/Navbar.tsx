@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -28,6 +29,16 @@ export default function Navbar() {
           className="h-12 md:h-14 w-auto"
         />
       </motion.a>
+
+      {/* Theme toggle — centered */}
+      <motion.div
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+        className="fixed top-3.5 left-1/2 -translate-x-1/2 z-50 hidden md:block"
+      >
+        <ThemeToggle />
+      </motion.div>
 
       {/* Nav links — top right */}
       <motion.nav
@@ -82,6 +93,9 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <div className="pt-2 border-t border-border">
+                <ThemeToggle />
+              </div>
             </div>
           </motion.div>
         )}
