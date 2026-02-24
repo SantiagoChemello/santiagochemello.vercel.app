@@ -49,7 +49,6 @@ export default function About() {
         <section id="about" className="py-3">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* About Me Card */}
                     <motion.div
                         {...fadeUp}
                         className="bg-card border border-border rounded-3xl p-8 md:p-10 card-glow"
@@ -70,7 +69,6 @@ export default function About() {
                             </p>
                         </div>
 
-                        {/* Languages */}
                         <div className="mt-6 pt-5 border-t border-border">
                             <div className="flex items-center gap-2 mb-3">
                                 <Languages size={15} className="text-primary" />
@@ -89,13 +87,11 @@ export default function About() {
                         </div>
                     </motion.div>
 
-                    {/* Experience & Education Card */}
                     <motion.div
                         {...fadeUp}
                         transition={{ duration: 0.6, delay: 0.12 }}
                         className="bg-card border border-border rounded-3xl p-8 md:p-10 card-glow"
                     >
-                        {/* Experience */}
                         <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-5">
                             Experience
                         </h2>
@@ -130,7 +126,6 @@ export default function About() {
                             ))}
                         </div>
 
-                        {/* Education */}
                         <div className="pt-5 border-t border-border">
                             <h3 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">
                                 Education

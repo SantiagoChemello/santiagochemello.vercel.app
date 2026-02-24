@@ -1,15 +1,27 @@
-import { motion } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, FileText, Github, Linkedin, ChevronDown } from 'lucide-react'
 import { Typewriter } from './ui/Typewriter'
 import { FlipCard, FlipCardFront, FlipCardBack } from './ui/FlipCard'
 
 export default function Hero() {
+    const [cvOpen, setCvOpen] = useState(false)
+    const cvRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (cvRef.current && !cvRef.current.contains(e.target as Node)) {
+                setCvOpen(false)
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => document.removeEventListener('mousedown', handleClickOutside)
+    }, [])
     return (
         <section
             id="home"
             className="relative min-h-screen flex items-center py-20 overflow-hidden"
         >
-            {/* Background blob — only visible in hero */}
             <div
                 className="pointer-events-none absolute top-4 left-[40%] -translate-x-1/2 w-[500px] h-[500px] rounded-full opacity-[0.25]"
                 style={{
@@ -18,7 +30,6 @@ export default function Hero() {
             />
             <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                    {/* Left — Text */}
                     <div className="space-y-6">
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
@@ -75,15 +86,45 @@ export default function Hero() {
                                 Contact Me
                                 <ArrowRight size={16} />
                             </a>
-                            <a
-                                href="/Santiago_Chemello_Resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 border border-border hover:border-muted-foreground text-foreground font-medium text-sm px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer"
-                            >
-                                <FileText size={16} />
-                                View CV
-                            </a>
+                            <div ref={cvRef} className="relative">
+                                <button
+                                    onClick={() => setCvOpen(!cvOpen)}
+                                    className="inline-flex items-center gap-2 border border-border hover:border-muted-foreground text-foreground font-medium text-sm px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer"
+                                >
+                                    <FileText size={16} />
+                                    View CV
+                                </button>
+                                <AnimatePresence>
+                                    {cvOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 6, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 6, scale: 0.95 }}
+                                            transition={{ duration: 0.15 }}
+                                            className="absolute top-full left-0 mt-2 bg-card border border-border rounded-xl shadow-lg overflow-hidden min-w-[180px] z-20"
+                                        >
+                                            <a
+                                                href="/CV Santiago Chemello.pdf"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                onClick={() => setCvOpen(false)}
+                                                className="flex items-center gap-3 px-4 py-3 text-sm text-foreground hover:bg-muted transition-colors duration-150 cursor-pointer"
+                                            >
+                                                <span>Spanish</span>
+                                            </a>
+                                            <a
+                                                href="/Santiago_Chemello_Resume.pdf"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                onClick={() => setCvOpen(false)}
+                                                className="flex items-center gap-3 px-4 py-3 text-sm text-foreground hover:bg-muted transition-colors duration-150 cursor-pointer border-t border-border"
+                                            >
+                                                <span>English</span>
+                                            </a>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
                             <a
                                 href="https://github.com/SantiagoChemello"
                                 target="_blank"
@@ -133,7 +174,6 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Scroll indicator */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

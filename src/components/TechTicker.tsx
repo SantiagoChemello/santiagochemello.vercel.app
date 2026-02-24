@@ -27,11 +27,9 @@ export default function TechTicker() {
         <section className="py-3 overflow-hidden">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="relative bg-card border border-border rounded-2xl py-4 overflow-hidden">
-                    {/* Edge fades */}
                     <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-card to-transparent z-10 pointer-events-none" />
                     <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-card to-transparent z-10 pointer-events-none" />
 
-                    {/* Scrolling container */}
                     <div className="flex gap-4 animate-ticker w-max">
                         {items.map((tech, i) => (
                             <TechPill key={`${tech.name}-${i}`} name={tech.name} icon={tech.icon} />

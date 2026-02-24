@@ -32,14 +32,12 @@ export default function Works() {
         <section id="works" className="py-3">
             <div className="max-w-6xl mx-auto px-6">
                 <motion.div {...fadeUp}>
-                    {/* Header */}
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-heading)]">
                             Projects
                         </h2>
                     </div>
 
-                    {/* Project Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {projects.map((project, i) => (
                             <motion.div

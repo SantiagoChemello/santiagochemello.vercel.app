@@ -15,7 +15,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Signature — pinned far left, outside content flow */}
       <motion.a
         href="#home"
         initial={{ opacity: 0, x: -20 }}
@@ -30,7 +29,6 @@ export default function Navbar() {
         />
       </motion.a>
 
-      {/* Theme toggle — centered */}
       <motion.div
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -40,14 +38,12 @@ export default function Navbar() {
         <ThemeToggle />
       </motion.div>
 
-      {/* Nav links — top right */}
       <motion.nav
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="fixed top-0 right-0 z-50"
       >
-        {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8 px-8 py-5">
           {navLinks.map((link) => (
             <a
@@ -60,7 +56,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile hamburger */}
         <div className="md:hidden p-5">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -72,7 +67,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile dropdown */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
