@@ -9,6 +9,7 @@ const projects = [
             'A lifestyle growth app designed for anyone who wants to elevate their life with intention — turning self-development into a structured, rewarding journey.',
         image: '/bloomly.jpg',
         repo: 'https://github.com/SantiagoChemello/bloomly-app',
+        tech: ['TypeScript'],
     },
     {
         title: 'Taskify',
@@ -17,6 +18,7 @@ const projects = [
             'A minimalist and elegant web application for managing your daily tasks. Simple yet powerful, it helps you organize personal and professional activities efficiently.',
         image: '/taskify.jpg',
         repo: 'https://github.com/SantiagoChemello/taskify-app',
+        tech: ['Ruby on Rails'],
     },
 ]
 
@@ -29,7 +31,7 @@ const fadeUp = {
 
 export default function Works() {
     return (
-        <section id="works" className="py-3">
+        <section id="works" className="pt-10 pb-3">
             <div className="max-w-6xl mx-auto px-6">
                 <motion.div {...fadeUp}>
                     <div className="flex items-center justify-between mb-6">
@@ -69,6 +71,16 @@ export default function Works() {
                                                 <p className="text-muted-foreground text-xs mt-1">
                                                     {project.description}
                                                 </p>
+                                                <div className="flex flex-wrap gap-2 mt-3">
+                                                    {project.tech.map((t) => (
+                                                        <span
+                                                            key={t}
+                                                            className="text-xs text-muted-foreground px-3 py-1.5 rounded-full border border-border bg-secondary/50"
+                                                        >
+                                                            {t}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </CardItem>
                                         </CardBody>
                                     </CardContainer>
